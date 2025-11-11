@@ -124,7 +124,7 @@ app.get("/echo", (req, res) => {
         res.send.json(`{ok:${ok}, error:"name & age required}`);
     }else {
         ok = true;
-        res.json({ok: ok, name: name, age: age,msg:"Hello <name>, you are <age>"});
+        res.json({ok: ok, name: name, age: age,msg:`Hello ${name}, you are ${age}`});
     }
 
 })
