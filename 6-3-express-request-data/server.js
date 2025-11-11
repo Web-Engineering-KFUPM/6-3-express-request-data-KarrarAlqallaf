@@ -105,11 +105,15 @@ LAB SETUP INSTRUCTIONS
  */
 
 import express from "express";
+import cors from "cors"
 const app = express();
+app.use(cors())
 const port =  3000;
 app.listen(port, ()=> console.log(`API running at http://localhost:${port}`));
 // create server
-
+app.get("/", (req, res) => {
+    res.json("hello this is the backend")
+})
 
 // Query params: /echo?name=Ali&age=22
 
