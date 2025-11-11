@@ -119,11 +119,12 @@ app.get("/", (req, res) => {
 // Query params: /echo?name=Ali&age=22
 app.get("/echo", (req, res) => {
     let ok = false;
-    const html = `<h1>name = ${req.query.name} age = ${req.query.age}</h1>`;
-    if (req.query.name === null || req.query.age === null) {
-        res.send.json(`ok:${ok}, error:"name & age required`);
+    const {name, age} = req.query;
+    if (name === null || age === null) {
+        res.send.json(`{ok:${ok}, error:"name & age required}`);
     }else {
-        res.send(html);
+        ok = true;
+        res.json({ok: ok, name: name, age: age,msg:"Hello <name>, you are <age>"});
     }
 
 })
