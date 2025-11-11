@@ -121,7 +121,7 @@ app.get("/echo", (req, res) => {
     let ok = false;
     const {name, age} = req.query;
     if (name === null || age === null) {
-        res.send.json({ok: ok,error: "name & age required"});
+        res.send.json.error({ok: ok,error: "name & age required"});
     }else {
         ok = true;
         res.json({ok: ok, name: name, age: age,msg:`Hello ${name}, you are ${age}`});
