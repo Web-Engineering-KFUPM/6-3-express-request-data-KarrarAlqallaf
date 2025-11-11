@@ -106,6 +106,7 @@ LAB SETUP INSTRUCTIONS
 
 import express from "express";
 import cors from "cors"
+import e from "express";
 const app = express();
 app.use(cors())
 const port =  3000;
@@ -116,7 +117,16 @@ app.get("/", (req, res) => {
 })
 
 // Query params: /echo?name=Ali&age=22
+app.get("/echo", (req, res) => {
+    let ok = false;
+    const html = `<h1>name = ${req.query.name} age = ${req.query.age}</h1>`;
+    if (req.query.name === null || req.query.age === null) {
+        res.send.json(`ok:${ok}, error:"name & age required`);
+    }else {
+        res.send(html);
+    }
 
+})
 
 // Route params: /profile/First/Last
 
